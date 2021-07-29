@@ -1,0 +1,17 @@
+F:\projects\drone_delivery\drone_delivery\bin\Debug\netcoreapp3.1\drone_delivery.exe
+F:\projects\drone_delivery\drone_delivery\bin\Debug\netcoreapp3.1\drone_delivery.deps.json
+F:\projects\drone_delivery\drone_delivery\bin\Debug\netcoreapp3.1\drone_delivery.runtimeconfig.json
+F:\projects\drone_delivery\drone_delivery\bin\Debug\netcoreapp3.1\drone_delivery.runtimeconfig.dev.json
+F:\projects\drone_delivery\drone_delivery\bin\Debug\netcoreapp3.1\drone_delivery.dll
+F:\projects\drone_delivery\drone_delivery\bin\Debug\netcoreapp3.1\drone_delivery.pdb
+F:\projects\drone_delivery\drone_delivery\obj\Debug\netcoreapp3.1\drone_delivery.csprojAssemblyReference.cache
+F:\projects\drone_delivery\drone_delivery\obj\Debug\netcoreapp3.1\drone_delivery.AssemblyInfoInputs.cache
+F:\projects\drone_delivery\drone_delivery\obj\Debug\netcoreapp3.1\drone_delivery.AssemblyInfo.cs
+F:\projects\drone_delivery\drone_delivery\obj\Debug\netcoreapp3.1\drone_delivery.csproj.CoreCompileInputs.cache
+F:\projects\drone_delivery\drone_delivery\obj\Debug\netcoreapp3.1\drone_delivery.dll
+F:\projects\drone_delivery\drone_delivery\obj\Debug\netcoreapp3.1\drone_delivery.pdb
+F:\projects\drone_delivery\drone_delivery\obj\Debug\netcoreapp3.1\drone_delivery.genruntimeconfig.cache
+F:\projects\drone_delivery\drone_delivery\bin\Debug\netcoreapp3.1\Bogus.dll
+F:\projects\drone_delivery\drone_delivery\obj\Debug\netcoreapp3.1\drone_delivery.csproj.CopyComplete
+F:\projects\drone_delivery\drone_delivery\bin\Debug\netcoreapp3.1\Json.Net.dll
+F:\projects\drone_delivery\drone_delivery\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

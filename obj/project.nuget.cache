@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZsOC+jGuVnapuGq1VGektn6eUkxaGzQqEjKaezCdF1AN1xn0HR8T8JDS1z1nSWn1hElSJY44A6fKymhuybvD0Q==",
+  "success": true,
+  "projectFilePath": "F:\\projects\\drone_delivery\\drone_delivery\\drone_delivery.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\bogus\\33.0.2\\bogus.33.0.2.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\json.net\\1.0.33\\json.net.1.0.33.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
