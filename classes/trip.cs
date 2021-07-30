@@ -6,7 +6,7 @@ namespace drone_delivery.classes
     public class trip
     {
         public int idTrip { get; set; }
-        public String locationName { get; set; }
+        public List<String> locationName { get; set; }
 
     }
 }
