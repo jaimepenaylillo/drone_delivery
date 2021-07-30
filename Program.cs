@@ -138,11 +138,21 @@ namespace drone_delivery
                 testDataDrone[droneIndex].trips = new List<trip>();
                 testDataDrone[droneIndex].currentIdTrip = 1;
             }
-            tripItem.locationName = testDataLocation[indexLocation].locationName;
-            tripItem.idTrip = testDataDrone[droneIndex].currentIdTrip;
-            testDataDrone[droneIndex].trips.Add(tripItem);
 
             testDataDrone[droneIndex].addLoad(testDataLocation[indexLocation].packageWeight);
+
+            var index = testDataDrone[droneIndex].trips
+                             .FindIndex(item => item.idTrip == testDataDrone[droneIndex].currentIdTrip);
+            if (index > -1)
+            {
+                testDataDrone[droneIndex].trips[index].locationName.Add(testDataLocation[indexLocation].locationName);
+                return;
+            }
+
+            tripItem.locationName = new List<string>();
+            tripItem.idTrip = testDataDrone[droneIndex].currentIdTrip;
+            tripItem.locationName.Add(testDataLocation[indexLocation].locationName);
+            testDataDrone[droneIndex].trips.Add(tripItem);
         }
 
     }
