@@ -11,6 +11,8 @@ namespace drone_delivery.classes
         public String locationName { get; set; }
         public Decimal packageWeight { get; set; }
 
+        public bool delivered { get; set; }
+
         public static Faker<location> FakeDataLocation { get; } =
             new Faker<location>()
                 .RuleFor(p => p.locationId, f => _locationId++)

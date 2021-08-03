@@ -45,6 +45,10 @@
               "target": "Package",
               "version": "[33.0.2, )"
             },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.11.0-release-20210626-04, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
@@ -52,6 +56,14 @@
             "json.net": {
               "target": "Package",
               "version": "[1.0.33, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.3, )"
             }
           },
           "imports": [

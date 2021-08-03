@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using drone_delivery.classes;
-using Newtonsoft.Json;
+
 
 
 namespace drone_delivery
@@ -10,9 +10,17 @@ namespace drone_delivery
     class Program
     {
         public String name = "";
+        public static int Add(int x, int y)
+        {
+            return x + y;
+        }
+
+        public static bool isOdd(int x)
+        {
+            return x % 2 == 1;
+        }
         static void Main(string[] args)
         {
-            drone dron1 = new drone();
             /// <summary>Change value of Generate(2), in order to generate more fake Dron Data </summary>
             int numberOfDroneRecords = 2;
             /// <summary>Change value of Generate(2), in order to generate more fake Location Data </summary>
@@ -52,108 +60,30 @@ namespace drone_delivery
                 return x.packageWeight.CompareTo(y.packageWeight);
             });
 
+            var droneIndex = 0;
 
-            int droneIndex = 0;
-            testDataDrone[droneIndex].currentIdTrip = 1;
-
-
-            testDataDrone[droneIndex].trips = new List<trip>();
-
-            for (int indexLocation = 0; indexLocation < testDataLocation.Count; indexLocation++)
+            while (testDataLocation != null && testDataLocation.Count() > 0)
             {
-                if (!testDataDrone[droneIndex].fullLoaded(testDataLocation[indexLocation].packageWeight))
-                {
-                    addLoadToDrone(testDataLocation, indexLocation, testDataDrone, droneIndex);
-                }
-                else
-                {
-                    ++droneIndex;
-
-                    if (droneIndex > numberOfDroneRecords - 1)
-                    {
-                        droneIndex = 0;
-                        ++testDataDrone[droneIndex].currentIdTrip;
-
-                    }
-                    testDataDrone[droneIndex].currentLoad = 0;
-                    addLoadToDrone(testDataLocation, indexLocation, testDataDrone, droneIndex);
-                }
-
-                if (droneIndex >= numberOfDroneRecords)
-                {
-                    droneIndex = 0;
-                    ++testDataDrone[droneIndex].currentIdTrip;
-                    testDataDrone[droneIndex].currentLoad = 0;
-                }
-
-
-
-                // Console.WriteLine(testDataDrone[droneIndex].droneName);
-                // Console.WriteLine(nroTrp);
-
+                if (droneIndex > numberOfDroneRecords - 1) droneIndex = 0;
+                drone.loadToDrone(testDataLocation, testDataDrone[droneIndex]);
+                ++droneIndex;
+                testDataLocation = testDataLocation.Where(p => p.delivered == false).ToList();
             }
 
-            Console.WriteLine(JsonConvert.SerializeObject(testDataDrone,
-                 Formatting.Indented));
-
-            //var groupedProducts = testDataDrone.GroupBy(p => p.trips.ToList<trip>);
-
-            foreach (drone adrone in testDataDrone)
+            trip.trips.Sort(delegate (trip x, trip y)
             {
-                var tripsDatas = new List<trip>();
-                foreach (trip atrip in adrone.trips)
-                {
-                    tripsDatas.Add(atrip);
-                }
-                Console.WriteLine(adrone.droneName);
+                return x.droneName.CompareTo(y.droneName);
+            });
 
-
-                int prevVal = 0;
-                for (int indextrip = 0; indextrip < tripsDatas.Count; indextrip++)
-                {
-                    List<String> listLocDesc = new List<string>();
-                    // listLocDesc.Add(tripsDatas[indextrip].locationName);
-                    if (indextrip == 0)
-                    {
-                        prevVal = tripsDatas[indextrip].idTrip;
-                    }
-                    if (tripsDatas[indextrip].idTrip != prevVal)
-                    {
-                        Console.WriteLine("Trip #" + tripsDatas[indextrip].idTrip);
-                        string concatLocInfo = String.Join(", ", listLocDesc.ToArray());
-                        Console.WriteLine(concatLocInfo);
-                        listLocDesc = new List<string>();
-                    }
-                    prevVal = tripsDatas[indextrip].idTrip;
-                }
+            foreach (var item in trip.trips.ToList())
+            {
+                Console.WriteLine(item.droneName);
+                Console.WriteLine(item.tripId);
+                string concatDroneInfo1 = String.Join(", ", item.locationNames.ToArray());
+                Console.WriteLine(concatDroneInfo1);
             }
-
         }
 
-        static void addLoadToDrone(List<location> testDataLocation, int indexLocation, List<drone> testDataDrone, int droneIndex)
-        {
-            trip tripItem = new trip();
-            if (testDataDrone[droneIndex].trips == null)
-            {
-                testDataDrone[droneIndex].trips = new List<trip>();
-                testDataDrone[droneIndex].currentIdTrip = 1;
-            }
-
-            testDataDrone[droneIndex].addLoad(testDataLocation[indexLocation].packageWeight);
-
-            var index = testDataDrone[droneIndex].trips
-                             .FindIndex(item => item.idTrip == testDataDrone[droneIndex].currentIdTrip);
-            if (index > -1)
-            {
-                testDataDrone[droneIndex].trips[index].locationName.Add(testDataLocation[indexLocation].locationName);
-                return;
-            }
-
-            tripItem.locationName = new List<string>();
-            tripItem.idTrip = testDataDrone[droneIndex].currentIdTrip;
-            tripItem.locationName.Add(testDataLocation[indexLocation].locationName);
-            testDataDrone[droneIndex].trips.Add(tripItem);
-        }
 
     }
 }

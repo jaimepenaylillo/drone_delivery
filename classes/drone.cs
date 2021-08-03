@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Bogus;
 
+
 namespace drone_delivery.classes
 {
     class drone
@@ -11,30 +12,6 @@ namespace drone_delivery.classes
         public int droneId { get; set; }
         public String droneName { get; set; }
         public Decimal carryMaxWeigth { get; set; }
-        public Decimal currentLoad { get; set; }
-        public int currentIdTrip { get; set; }
-        public List<trip> trips { get; set; }
-
-        public Boolean fullLoaded(Decimal fackeLoad = 0)
-        {
-            Decimal dronLoad = fackeLoad + currentLoad;
-
-            if (dronLoad > carryMaxWeigth)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public Decimal addLoad(Decimal amount)
-        {
-            currentLoad = currentLoad + amount;
-            return currentLoad;
-        }
-
 
 
         /// <summary>Generate Fake Data for drones, in odder to test 
@@ -46,7 +23,34 @@ namespace drone_delivery.classes
                 .RuleFor(p => p.droneName, f => "Drone #" + _subfixName++)
                 .RuleFor(p => p.carryMaxWeigth, f => f.Random.Decimal(500, 1000));
 
+
+        public static void loadToDrone(List<location> testDataLocation, drone itemDrone)
+        {
+            {
+                decimal currentWeigth = 0;
+                foreach (var itemLocation in testDataLocation)
+                {
+                    currentWeigth += itemLocation.packageWeight;
+                    if (currentWeigth < itemDrone.carryMaxWeigth)
+                    {
+                        itemLocation.delivered = true;
+                        Console.WriteLine("Location Name:" + itemLocation.locationName + "; Drone Name:" + itemDrone.droneName);
+
+                        trip.addTrip(itemDrone.droneName, itemLocation.locationName);
+                    }
+                    else
+                    {
+                        itemLocation.delivered = false;
+                        Console.WriteLine("Full; " + "Location Name:" + itemLocation.locationName + "; Drone Name:" + itemDrone.droneName);
+                        return;
+                    }
+                }
+            }
+        }
+
     }
+
+
 
 
 }
