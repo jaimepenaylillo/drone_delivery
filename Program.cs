@@ -76,14 +76,16 @@ namespace drone_delivery
             {
                 return x.droneName.CompareTo(y.droneName);
             });
-
+            var droneNameOutPut = "";
             Console.WriteLine("EXPECTED OUTPUTOUTPUT");
             foreach (var item in trip.trips.ToList())
             {
-                Console.WriteLine(item.droneName);
-                Console.WriteLine(item.tripId);
+                if (droneNameOutPut == "" || droneNameOutPut != item.droneName)
+                    Console.WriteLine(item.droneName);
+                Console.WriteLine("Trip#" + item.tripId);
                 string concatDroneInfo1 = String.Join(", ", item.locationNames.ToArray());
                 Console.WriteLine(concatDroneInfo1);
+                droneNameOutPut = item.droneName;
             }
         }
     }
