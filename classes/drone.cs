@@ -34,14 +34,11 @@ namespace drone_delivery.classes
                     if (currentWeigth < itemDrone.carryMaxWeigth)
                     {
                         itemLocation.delivered = true;
-                        Console.WriteLine("Location Name:" + itemLocation.locationName + "; Drone Name:" + itemDrone.droneName);
-
                         trip.addTrip(itemDrone.droneName, itemLocation.locationName);
                     }
                     else
                     {
                         itemLocation.delivered = false;
-                        Console.WriteLine("Full; " + "Location Name:" + itemLocation.locationName + "; Drone Name:" + itemDrone.droneName);
                         return;
                     }
                 }

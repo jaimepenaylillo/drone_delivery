@@ -35,6 +35,8 @@ namespace drone_delivery
                 listDroneDesc.Add(aDrone.droneName + ", " + aDrone.carryMaxWeigth.ToString());
             }
 
+            Console.WriteLine("GIVEN INPUT");
+
             string concatDroneInfo = String.Join(", ", listDroneDesc.ToArray());
             Console.WriteLine(concatDroneInfo);
 
@@ -75,6 +77,7 @@ namespace drone_delivery
                 return x.droneName.CompareTo(y.droneName);
             });
 
+            Console.WriteLine("EXPECTED OUTPUTOUTPUT");
             foreach (var item in trip.trips.ToList())
             {
                 Console.WriteLine(item.droneName);
@@ -83,7 +86,5 @@ namespace drone_delivery
                 Console.WriteLine(concatDroneInfo1);
             }
         }
-
-
     }
 }
