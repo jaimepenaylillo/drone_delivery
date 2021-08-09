@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "uFmfEa32LzbuXoQa8elpJNnJxlHlXEg3RSS6wY6Hc0xKzlkLUmawUCMFJnZhsMd227D5XxTMuw1H/gj0aDm8Ww==",
+  "dgSpecHash": "Kj8R+TUPW+pNQzLWWodAmebd7ToAsMvjeZ1HlH/o3EgCqM0CG75UnH5YiMzAK2XilB2VoEmAxGYd64NlP67W4g==",
   "success": true,
   "projectFilePath": "F:\\projects\\drone_delivery\\drone_delivery\\drone_delivery.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\bogus\\33.0.2\\bogus.33.0.2.nupkg.sha512",
+    "C:\\Users\\Usuario\\.nuget\\packages\\figgle\\0.4.0\\figgle.0.4.0.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\json.net\\1.0.33\\json.net.1.0.33.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.codecoverage\\16.11.0-release-20210626-04\\microsoft.codecoverage.16.11.0-release-20210626-04.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.net.test.sdk\\16.11.0-release-20210626-04\\microsoft.net.test.sdk.16.11.0-release-20210626-04.nupkg.sha512",

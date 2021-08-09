@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Bogus;
 
 
@@ -28,17 +29,17 @@ namespace drone_delivery.classes
         {
             {
                 decimal currentWeigth = 0;
-                foreach (var itemLocation in testDataLocation)
+                for (var i = 0; i <= testDataLocation.Count() - 1; i++)
                 {
-                    currentWeigth += itemLocation.packageWeight;
-                    if (currentWeigth < itemDrone.carryMaxWeigth)
+                    currentWeigth += testDataLocation[i].packageWeight;
+                    if (currentWeigth <= itemDrone.carryMaxWeigth)
                     {
-                        itemLocation.delivered = true;
-                        trip.addTrip(itemDrone.droneName, itemLocation.locationName);
+                        testDataLocation[i].delivered = true;
+                        trip.addTrip(itemDrone.droneName, testDataLocation[i].locationName);
                     }
                     else
                     {
-                        itemLocation.delivered = false;
+                        testDataLocation[i].delivered = false;
                         return;
                     }
                 }

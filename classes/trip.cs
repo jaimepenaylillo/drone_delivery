@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace drone_delivery.classes
 {
@@ -11,32 +12,55 @@ namespace drone_delivery.classes
 
         public static List<trip> trips { get; set; }
 
+        public static string currdroneName { get; set; }
+
         public static void addTrip(string droneNameIn, string locationNameIn)
         {
             if (trips == null)
             {
                 trips = new List<trip>();
-            }
-            int result = trips.FindIndex(element => element.droneName == droneNameIn);
-            if (result > -1 && trips.FindAll(elementt => elementt.droneName == droneNameIn).Count == trips[result].locationNames.Count)
-            {
-                if (trips[result].locationNames == null)
-                {
-                    trips[result].locationNames = new List<String>();
-                }
-                trips[result].locationNames.Add(locationNameIn);
+                currdroneName = droneNameIn;
+                insertTrip(droneNameIn, locationNameIn);
                 return;
             }
-            trip tripToAdd = new trip();
 
+            if (currdroneName == droneNameIn)
+            {
+                var lasTrip = trips.Max(x => x.tripId);
+                int indice = trips.FindIndex(element => element.droneName == droneNameIn && element.tripId == lasTrip);
+                if (indice > -1)
+                {
+                    trips[indice].locationNames.Add(locationNameIn);
+                }
+
+            }
+            else
+            {
+                var lasTrip = trips.Max(x => x.tripId);
+                int indice = trips.FindIndex(element => element.droneName == droneNameIn && element.tripId == lasTrip);
+                if (indice > -1)
+                {
+                    trips[indice].locationNames.Add(locationNameIn);
+                }
+                else
+                {
+                    insertTrip(droneNameIn, locationNameIn);
+                }
+            }
+            currdroneName = droneNameIn;
+        }
+
+        private static void insertTrip(string droneNameIn, string locationNameIn)
+        {
+            trip tripToAdd = new trip();
             tripToAdd.tripId = trips.FindAll(element => element.droneName == droneNameIn).Count + 1;
             tripToAdd.droneName = droneNameIn;
             tripToAdd.locationNames = new List<String>();
             tripToAdd.locationNames.Add(locationNameIn);
-
             trips.Add(tripToAdd);
         }
     }
+
 
 
 }

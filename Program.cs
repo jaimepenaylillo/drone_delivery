@@ -21,10 +21,25 @@ namespace drone_delivery
         }
         static void Main(string[] args)
         {
+            Console.WriteLine(Figgle.FiggleFonts.Standard.Render("Drone Delivery!"));
             /// <summary>Change value of Generate(2), in order to generate more fake Dron Data </summary>
-            int numberOfDroneRecords = 2;
+            Console.Write("Enter Number Of Drone fleet: ");
+            int numberOfDroneRecords = Convert.ToInt32(Console.ReadLine());
+            while (numberOfDroneRecords < 1 && numberOfDroneRecords > 100)
+            {
+                Console.WriteLine("Please insert a number between 1 to 100");
+                numberOfDroneRecords = Convert.ToInt32(Console.ReadLine());
+            }
+
             /// <summary>Change value of Generate(2), in order to generate more fake Location Data </summary>
-            int numberOfLocationRecords = 10;
+            Console.Write("Enter Number Of Location: ");
+            int numberOfLocationRecords = Convert.ToInt32(Console.ReadLine());
+
+            while (numberOfLocationRecords < 1 && numberOfLocationRecords > 100)
+            {
+                Console.WriteLine("Please insert a number between 1 to 100");
+                numberOfLocationRecords = Convert.ToInt32(Console.ReadLine());
+            }
 
             var testDataDrone = drone.FakeData.Generate(numberOfDroneRecords).ToList();
             var testDataLocation = location.FakeDataLocation.Generate(numberOfLocationRecords).ToList();
@@ -72,10 +87,6 @@ namespace drone_delivery
                 testDataLocation = testDataLocation.Where(p => p.delivered == false).ToList();
             }
 
-            trip.trips.Sort(delegate (trip x, trip y)
-            {
-                return x.droneName.CompareTo(y.droneName);
-            });
             var droneNameOutPut = "";
             Console.WriteLine("EXPECTED OUTPUTOUTPUT");
             foreach (var item in trip.trips.ToList())
@@ -87,6 +98,8 @@ namespace drone_delivery
                 Console.WriteLine(concatDroneInfo1);
                 droneNameOutPut = item.droneName;
             }
+            Console.ReadLine();
         }
+
     }
 }

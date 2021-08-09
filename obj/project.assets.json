@@ -11,6 +11,19 @@
           "lib/netstandard2.0/Bogus.dll": {}
         }
       },
+      "Figgle/0.4.0": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.IO.Compression.ZipFile": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.3/Figgle.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Figgle.dll": {}
+        }
+      },
       "Json.Net/1.0.33": {
         "type": "package",
         "compile": {
@@ -1611,6 +1624,22 @@
         "lib/netstandard1.3/Bogus.xml",
         "lib/netstandard2.0/Bogus.dll",
         "lib/netstandard2.0/Bogus.xml"
+      ]
+    },
+    "Figgle/0.4.0": {
+      "sha512": "cHs6CTvKljWhQpAlu8Q5SVf4H3DNNYNFjPMsv9VIm+Pj7Z0O9oq2o4lF02GUVI+aHEVg24BdtmUadIbVoDD9uw==",
+      "type": "package",
+      "path": "figgle/0.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "figgle.0.4.0.nupkg.sha512",
+        "figgle.nuspec",
+        "lib/net45/Figgle.dll",
+        "lib/net45/Figgle.xml",
+        "lib/netstandard1.3/Figgle.dll",
+        "lib/netstandard1.3/Figgle.xml",
+        "logo-square-256px.png"
       ]
     },
     "Json.Net/1.0.33": {
@@ -5594,6 +5623,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Bogus >= 33.0.2",
+      "Figgle >= 0.4.0",
       "Microsoft.NET.Test.Sdk >= 16.11.0-release-20210626-04",
       "Newtonsoft.Json >= 13.0.1",
       "json.net >= 1.0.33",
@@ -5608,11 +5638,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "f:\\projects\\drone_delivery\\drone_delivery\\drone_delivery.csproj",
+      "projectUniqueName": "F:\\projects\\drone_delivery\\drone_delivery\\drone_delivery.csproj",
       "projectName": "drone_delivery",
-      "projectPath": "f:\\projects\\drone_delivery\\drone_delivery\\drone_delivery.csproj",
+      "projectPath": "F:\\projects\\drone_delivery\\drone_delivery\\drone_delivery.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "f:\\projects\\drone_delivery\\drone_delivery\\obj\\",
+      "outputPath": "F:\\projects\\drone_delivery\\drone_delivery\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5645,6 +5675,10 @@
           "Bogus": {
             "target": "Package",
             "version": "[33.0.2, )"
+          },
+          "Figgle": {
+            "target": "Package",
+            "version": "[0.4.0, )"
           },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
