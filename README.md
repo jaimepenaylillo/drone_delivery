@@ -114,6 +114,8 @@ clicking it you can execute the console application.
 After that a console Aplication is been rised, asking for number of Drone in the fleet, you can input Eg. 100, after that the number of locations.
 As is required the data is displayed: as follows:
 
+EG. Using 2 as Drones in Fleet and 5 Locations.
+
 $ dotnet run
 
 ---
